@@ -6,15 +6,21 @@ import './weather.css';
 
 
 const Weather = (props) => (
-	<div className="weather__info">
-	 	{	
-	 	props.city && props.country && <p className="weather__key"> Location: 
-	 		<span className="weather__value"> { this.props.city }</span>
-	 	</p> 
-	 	}
+	
+	
+		
+		<div className="weather__info">
+		
+	 	<React.Fragment>
+		{
+			props.city  && <p className="weather__key"> Location: 
+	 		<span className="weather__value"> { props.city }</span>
+	 	</p>
+		}  
+	 	
 		{ 	
-			props.temperature && <p className="weather__key"> Температура: 
-				<span className="weather__value"> { props.temperature }	</span>
+			props.temp && <p className="weather__key"> Температура: 
+				<span className="weather__value"> { props.temp }	</span>
 			</p> 
 		}
 		{ 	
@@ -32,10 +38,22 @@ const Weather = (props) => (
 				<span className="weather__value"> { props.wind} </span>
 		</p> 
 		}
-	 { 
-	 	props.error && <p className="weather__error">{ props.error }</p>  
-	 }
+		{ 	
+			props.icon && <p>
+			<img src={`http://openweathermap.org/img/w/${props.icon}.png`}
+				alt="weaher icon" /> 
+				
+			</p> 
+		}
+		{ 
+			props.error && <p className="weather__error">{ props.error }</p>  
+		}
+		</React.Fragment>
+	 	
 	</div>
-);
+	
+	
+	
+)
 
 export default Weather;
