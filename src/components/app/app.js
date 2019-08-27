@@ -1,40 +1,43 @@
 import React,{Component} from "react";
 
-
-import Form from '../form/form';
-import Weather from "../weather/weather";
+import DataWeather from '../data-weather/data-weather';
 
 import './app.css';
 
 
 
-let city = 'London';
-let appId = '887a9e3fcec30ecb5238bc4f492dcf5b';
+// let city = 'London';
+// let appId = '887a9e3fcec30ecb5238bc4f492dcf5b';
 
 class App extends React.Component {
 
+	// getDataWeather = async(e) => {
+	// 	e.preventDefault();
+	// 	const city = this.state.city;
+	// 	const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appId}&units=metric`);
+	// 	const data = await api_call.json();
+	// 	this.setState({
+	// 		city: ''
+	// 	})
+	// 	console.log(data);
+	// }
 
-
-  render() {
-    return (
-      <div>
-        <div className="wrapper">
-          <div className="main">
-            <div className="container">
-              <div className="row">
-                
-                <div className="col-xs-7 form-container">
-				<Form />
-				<Weather />
-				  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+	render() {
+    	return (
+			<div>
+				<div className="wrapper">
+					<div className="main">
+						<div className="container">
+							<div className="row">
+								
+								<DataWeather/> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+   		);
+  	}
 };
 
 export default App;

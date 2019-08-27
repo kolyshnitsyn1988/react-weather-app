@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import Weather from "../weather/weather";
 
 
 let appId = '887a9e3fcec30ecb5238bc4f492dcf5b';
@@ -29,6 +30,24 @@ export default class Form extends Component{
 			city: ''
 		})
 		console.log(data);
+		if (city) {
+			this.setState({
+			temperature: data.main.temp,
+			city: data.name,
+			humidity: data.main.humidity,
+			description: data.weather[0].description,
+			error: ""
+			});
+		} else {
+		this.setState({
+			temperature: undefined,
+			city: undefined,
+			country: undefined,
+			humidity: undefined,
+			description: undefined,
+			error: "Please enter the values."
+			});
+		}
 	}
 
 	
@@ -43,6 +62,13 @@ export default class Form extends Component{
 						value={this.state.city}
 				/>
 				<div><button>Получить погоду</button></div>
+				<Weather 
+                    temperature={this.state.temperature} 
+                    humidity={this.state.humidity}
+                    city={this.state.city}
+                    country={this.state.country}
+                    description={this.state.description}
+                    error={this.state.error}/>
 			</form>
 			
 			
