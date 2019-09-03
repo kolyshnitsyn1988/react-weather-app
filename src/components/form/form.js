@@ -7,11 +7,11 @@ export default class Form extends Component{
 	render(){
 		return(
 			<form onSubmit={this.props.loadWeather}>
-				<input type="text" placeholder="Введите город"
+				<input 	type="text" placeholder="Введите город"
 						onChange={this.props.inputChange}
 						value={this.props.value}
 				/>
-				<div><button>Получить погоду</button></div>
+				<button className="btn">Получить погоду</button>
 			</form>
 		);
 	}
